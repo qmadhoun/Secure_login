@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registratie</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Account Aanmaken</h2>
+        <form method="POST" action="/register">
+            <div class="form-group">
+                <label>Kies een gebruikersnaam:</label>
+                <input type="text" name="username" required 
+                       minlength="3" maxlength="20"
+                       pattern="[a-zA-Z0-9]+"
+                       title="Alleen letters en cijfers (3-20 tekens)">
+            </div>
+            
+            <div class="form-group">
+                <label>Kies een wachtwoord:</label>
+                <input type="password" name="password" required
+                       minlength="8"
+                       title="Minimaal 8 tekens">
+            </div>
+
+            <button type="submit">Account Maken</button>
+        </form>
+        
+        <p>Al een account? <a href="/login">Log hier in</a></p>
+        
+        {% if message %}
+        <div class="alert">
+            {{ message }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
